@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Product;
 use App\Http\Livewire\Category;
+use App\Http\Livewire\OrderPage;
+use App\Http\Livewire\SingleOrder;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,7 @@ Route::get('/', function () {
 Route::get('/dashboard',Dashboard::class)->name('dashboard')->middleware(['auth']);
 Route::get('/product',Product::class)->name('product')->middleware(['auth']);
 Route::get('/category',Category::class)->name('category')->middleware(['auth']);
-
+Route::get('/orders',OrderPage::class)->name('order-page')->middleware(['auth']);
+Route::get('/order/{page_id}',SingleOrder::class)->name('single-order')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
